@@ -14,9 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dash', function () {
+    return view('dash.index');
+})->name('dash');
+
+Route::get('/dash/crud', function () {
+    return view('crud.index');
+});
+
+Route::get('/dash/crud/create', function () {
+    return view('crud.create');
+ });
